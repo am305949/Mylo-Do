@@ -1,0 +1,45 @@
+<div class="centered-content">
+  <div class="todo-manager-container">
+    <div class="sidebar">
+      <h1 class="title has-text-primary">
+        Groups
+      </h1>
+      <div class="group-menu">
+        <a class="group-menu-item" *ngFor="let group of groups" [routerLink]="['/', userId, 'groups', group._id]" routerLinkActive="is-active">
+          <p class="white-text">
+            {{ group.title }}
+            <span class="pull-right group-delete btn-rounded-corners" (click)="deleteGroup(group)">x</span>
+          </p>
+        </a>
+      </div>
+      <button class="btn btn-primary btn-rounded-corners" [routerLink]="['/', userId, 'new-group']">Add Group</button>
+    </div>
+
+    <div class="todo-group-container">
+      <div class="d-flex justify-content-between">
+        <h1 class="title has-text-primary">
+          ToDos
+        </h1>
+        <button class="btn btn-danger btn-rounded-corners" (click)="logout()">Logout</button>
+      </div>
+
+      <div class="todos">
+        <div class="todo alert alert-danger" *ngIf="error">
+          <p>{{ errorMessage }}</p>
+        </div>
+        <div class="todo" [ngClass]="todo.Completed? 'complete':''" *ngFor="let todo of todos" (click)="onTodoClick(todo)">
+            <div class="white-text">
+              {{ todo.title }}
+              <div class="todo-options pull-right">
+                <span class=" group-mark btn-rounded-corners" (click)="completeTodo(todo, $event)">{{todo.Completed? 'Not Completed' : 'Completed'}}</span>
+                <span class=" group-edit btn-rounded-corners mx-3" (click)="editTodo(todo, $event)">Edit</span>
+                <span class=" group-delete btn-rounded-corners" (click)="deleteTodo(todo, $event)">x</span>
+              </div>
+            </div>
+        </div>
+      </div>
+      <button class="btn btn-primary add-button" (click)="addTodo()">+</button>
+    </div>
+
+  </div>
+</div>
