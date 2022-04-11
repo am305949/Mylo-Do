@@ -1,0 +1,19 @@
+<div class="centered-content">
+  <div class="modal-box form-group">
+    <h1 class="title">Edit ToDo Title</h1>
+    <input type="text" #todoTitleInput class="form-control has-background-light" placeholder="Enter New ToDo Title">
+    <br>
+
+    <h1 class="title">Edit ToDo Discription</h1>
+    <input type="text" #todoDiscriptionInput class="form-control has-background-light" placeholder="Enter New ToDo Discription">
+    <br>
+
+    <h1 class="title">Edit ToDo Deadline</h1>
+    <input type="date" #todoDeadlineInput class="form-control has-background-light">
+
+    <div class="btns d-flex justify-content-center align-items-center mt-4">
+      <button class="btn btn-primary me-5" (click)="editTodo(todoTitleInput.value, todoDiscriptionInput.value, todoDeadlineInput.value)">Edit</button>
+      <button class="btn btn-danger" routerLink="../../">Cancel</button>
+    </div>
+  </div>
+</div>
