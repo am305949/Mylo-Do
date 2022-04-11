@@ -1,0 +1,23 @@
+<div class="centered-content">
+  <div class="modal-box form-group">
+    <h5 *ngIf="createdTodo" class="text-danger text-center">Come on you're a responsible man now with things to do!! Please Enter a valid date</h5>
+
+    <h1 class="title text-center">Create a new ToDo</h1>
+    <hr>
+    <h5>Todo Title</h5>
+    <input type="text" #todoTitleInput class="form-control has-background-light" placeholder="Enter ToDo Title">
+    <br>
+
+    <h5>Todo Discription</h5>
+    <input type="text" #todoDiscriptionInput class="form-control has-background-light" placeholder="Enter ToDo Discription">
+    <br>
+
+    <h5>Todo Deadline</h5>
+    <input type="date" #todoDeadlineInput class="form-control has-background-light">
+
+    <div class="btns d-flex justify-content-center align-items-center mt-4">
+      <button class="btn btn-primary me-5" (click)="addTodo(todoTitleInput.value, todoDiscriptionInput.value, todoDeadlineInput.value)">Add</button>
+      <button class="btn btn-danger" routerLink="../">Cancel</button>
+    </div>
+  </div>
+</div>
